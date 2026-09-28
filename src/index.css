@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+:root, [data-theme="dark"], .dark {
+  --color-bg-primary: #0B132B;
+  --color-surface: #1C2541;
+  --color-surface-card: #1C2541;
+  --color-surface-inner: #0B132B;
+  --color-brand: #00B4D8;
+  --color-brand-hover: #38c7e5;
+  --color-accent: #FFB703;
+  --color-text-main: #F8F9FA;
+  --color-text-muted: #94A3B8;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-border-subtle: rgba(255, 255, 255, 0.07);
+  --color-header-bg: rgba(11, 19, 43, 0.95);
+  --color-strip-bg: rgba(28, 37, 65, 0.9);
+}
+
+[data-theme="light"], .light {
+  --color-bg-primary: #FDFBF7;
+  --color-surface: #FFFFFF;
+  --color-surface-card: #FFFFFF;
+  --color-surface-inner: #FEF9EE;
+  --color-brand: #B45309;
+  --color-brand-hover: #92400E;
+  --color-accent: #D97706;
+  --color-text-main: #1C1917;
+  --color-text-muted: #57534E;
+  --color-border: #E7DFD3;
+  --color-border-subtle: #F4EFE6;
+  --color-header-bg: rgba(253, 251, 247, 0.96);
+  --color-strip-bg: #FEF9EE;
+}
+
+@layer base {
+  html {
+    font-family: 'Pyidaungsu', 'Noto Sans Myanmar', system-ui, sans-serif;
+    scroll-behavior: smooth;
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-main);
+  }
+
+  body {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-main);
+    line-height: 1.5;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  /* Burmese line-height enforcement to prevent clipping of ascenders & descenders */
+  [lang="mm"], .locale-mm {
+    font-family: 'Pyidaungsu', 'Noto Sans Myanmar', system-ui, sans-serif;
+    line-height: 1.85 !important;
+  }
+
+  /* Crisp selection highlight */
+  ::selection {
+    background-color: var(--color-brand);
+    color: #FFFFFF;
+  }
+}
+
+/* Hard, flat-depth borders & crisp mobile shadows */
+.crisp-surface {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: 3px 3px 0px 0px rgba(0, 180, 216, 0.2);
+}
+
+.light .crisp-surface {
+  background-color: #FFFFFF;
+  border: 1px solid #E7DFD3;
+  box-shadow: 3px 3px 0px 0px rgba(180, 83, 9, 0.22);
+}
+
+.crisp-surface-hover {
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.crisp-surface-hover:hover {
+  border-color: var(--color-brand);
+  box-shadow: 4px 4px 0px 0px rgba(0, 180, 216, 0.35);
+  transform: translate(-1px, -1px);
+}
+
+.light .crisp-surface-hover:hover {
+  border-color: #B45309;
+  box-shadow: 4px 4px 0px 0px rgba(180, 83, 9, 0.35);
+}
+
+/* Subtle tech grid background in dark & light */
+.tech-grid-bg {
+  background-color: var(--color-bg-primary);
+  background-size: 28px 28px;
+  background-image: radial-gradient(rgba(0, 180, 216, 0.12) 1px, transparent 1px);
+}
+
+.light .tech-grid-bg,
+[data-theme="light"] .tech-grid-bg {
+  background-color: #FDFBF7;
+  background-size: 28px 28px;
+  background-image: radial-gradient(rgba(180, 83, 9, 0.12) 1px, transparent 1px);
+}

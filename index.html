@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Fix for environments/sandboxed iframes where window.fetch has only a getter on Window prototype
+      (function() {
+        try {
+          var _rawFetch = window.fetch;
+          var _fetch = typeof _rawFetch === 'function' ? function() { return _rawFetch.apply(window, arguments); } : _rawFetch;
+          Object.defineProperty(window, 'fetch', {
+            get: function() {
+              return _fetch;
+            },
+            set: function(fn) {
+              _fetch = fn;
+            },
+            configurable: true,
+            enumerable: true
+          });
+        } catch (e1) {
+          try {
+            var _protoFetch = Window.prototype.fetch;
+            Object.defineProperty(Window.prototype, 'fetch', {
+              get: function() {
+                return _protoFetch;
+              },
+              set: function(fn) {
+                _protoFetch = fn;
+              },
+              configurable: true,
+              enumerable: true
+            });
+          } catch (e2) {}
+        }
+      })();
+
+      // Prevent "Cannot read properties of undefined (reading 'miniProgram')" from WeChat / browser extensions
+      (function() {
+        try {
+          var mockMiniProgram = {
+            getEnv: function(cb) { if (typeof cb === 'function') cb({ miniprogram: false }); },
+            navigateBack: function() {},
+            navigateTo: function() {},
+            redirectTo: function() {},
+            switchTab: function() {},
+            reLaunch: function() {},
+            postMessage: function() {}
+          };
+
+          if (typeof window !== 'undefined') {
+            if (!window.wx) {
+              window.wx = { miniProgram: mockMiniProgram };
+            } else if (!window.wx.miniProgram) {
+              window.wx.miniProgram = mockMiniProgram;
+            }
+          }
+          if (typeof globalThis !== 'undefined') {
+            if (!globalThis.wx) {
+              globalThis.wx = { miniProgram: mockMiniProgram };
+            } else if (!globalThis.wx.miniProgram) {
+              globalThis.wx.miniProgram = mockMiniProgram;
+            }
+          }
+
+          window.addEventListener('error', function(e) {
+            if (e && e.message && e.message.indexOf('miniProgram') !== -1) {
+              e.preventDefault();
+              e.stopPropagation();
+              return true;
+            }
+          }, true);
+        } catch (e) {}
+      })();
+    </script>
+    <title>myanmardev.com – ဒိုမိန်းအမည် ရောင်းရန်ရှိသည် (Domain For Sale)</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <meta name="description" content="The premium domain myanmardev.com is officially for sale. Inquire directly with owner Htet Aung Hlaing. Payment via Binance Pay, Myanmar Banks, or Face to Face in Mayangone, Yangon." />
+    <meta property="og:title" content="myanmardev.com – ဒိုမိန်းအမည် ရောင်းရန်ရှိသည် (Domain For Sale)" />
+    <meta property="og:description" content="The premium domain myanmardev.com is officially for sale. Inquire directly with owner Htet Aung Hlaing. Payment via Binance Pay, Myanmar Banks, or Face to Face in Mayangone, Yangon." />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MyanmarDev Domain Marketplace" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="myanmardev.com – Premium Domain For Sale" />
+    <meta name="twitter:description" content="The premium domain myanmardev.com is officially for sale. Direct inquiry with owner Htet Aung Hlaing." />
+    
+    <!-- Google Fonts: Plus Jakarta Sans, Space Grotesk, Noto Sans Myanmar, Padauk for full Unicode compatibility -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@400;500;600;700;800&family=Padauk:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <!-- Schema.org JSON-LD Structured Data for Domain Asset Offer -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "myanmardev.com Domain Name",
+      "description": "Premium domain name myanmardev.com available for acquisition. Ideal for Myanmar software developers, technology startups, agencies, and dev communities.",
+      "category": "Internet Domain Names",
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "priceCurrency": "USD",
+          "description": "Price upon negotiation / direct inquiry"
+        },
+        "seller": {
+          "@type": "Person",
+          "name": "Htet Aung Hlaing",
+          "email": "myanmardevadmin@gmail.com",
+          "telephone": "+959786579514"
+        }
+      }
+    }
+    </script>
+  </head>
+  <body class="antialiased min-h-screen">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <!-- Left chevron gradient -->
+    <linearGradient id="fav-blue-chevron" x1="16" y1="180" x2="88" y2="330" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0066FF" />
+      <stop offset="100%" stop-color="#0047BA" />
+    </linearGradient>
+
+    <!-- M left pillar gradient -->
+    <linearGradient id="fav-m-left" x1="100" y1="80" x2="160" y2="380" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0066FF" />
+      <stop offset="50%" stop-color="#0052D4" />
+      <stop offset="100%" stop-color="#00359E" />
+    </linearGradient>
+
+    <!-- M center fold / ribbon gradient -->
+    <linearGradient id="fav-m-ribbon" x1="100" y1="80" x2="260" y2="360" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0080FF" />
+      <stop offset="45%" stop-color="#0066FF" />
+      <stop offset="100%" stop-color="#0047BA" />
+    </linearGradient>
+
+    <!-- M right diagonal -->
+    <linearGradient id="fav-m-right" x1="280" y1="80" x2="200" y2="360" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0091FF" />
+      <stop offset="60%" stop-color="#005BD6" />
+      <stop offset="100%" stop-color="#0044B2" />
+    </linearGradient>
+
+    <!-- D giant loop gradient: Royal Blue -> Cyan -> Emerald Green -->
+    <linearGradient id="fav-d-loop" x1="280" y1="80" x2="480" y2="380" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0066FF" />
+      <stop offset="25%" stop-color="#0088FF" />
+      <stop offset="55%" stop-color="#00B4D8" />
+      <stop offset="75%" stop-color="#00C49F" />
+      <stop offset="100%" stop-color="#00D285" />
+    </linearGradient>
+
+    <!-- Inner right chevron gradient -->
+    <linearGradient id="fav-green-chevron" x1="310" y1="190" x2="380" y2="320" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#00B4D8" />
+      <stop offset="50%" stop-color="#00C49F" />
+      <stop offset="100%" stop-color="#00D285" />
+    </linearGradient>
+
+    <!-- Subtle drop shadow filter for depth -->
+    <filter id="fav-shadow" x="-10%" y="-10%" width="120%" height="120%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="2" dy="6" stdDeviation="6" flood-color="#001845" flood-opacity="0.25" />
+    </filter>
+  </defs>
+
+  <!-- Left < Chevron -->
+  <path
+    d="M 88 186 L 24 256 L 88 326"
+    stroke="url(#fav-blue-chevron)"
+    stroke-width="32"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <!-- The Origami M & D Compound Emblem -->
+  <!-- Left leg of M -->
+  <path
+    d="M 106 88 L 158 142 L 158 384 L 106 384 Z"
+    fill="url(#fav-m-left)"
+  />
+
+  <!-- M Left Diagonal / Folding Ribbon -->
+  <path
+    d="M 106 88 L 248 238 L 198 384 L 158 142 Z"
+    fill="url(#fav-m-ribbon)"
+  />
+
+  <!-- M Right Diagonal (reaching top right peak) -->
+  <path
+    d="M 248 238 L 284 88 L 284 384 L 198 384 Z"
+    fill="url(#fav-m-right)"
+  />
+
+  <!-- D Large Outer Curve Sweep -->
+  <path
+    d="M 284 88 C 390 88 488 160 488 256 C 488 352 390 384 284 384 L 284 336 C 362 336 432 305 432 256 C 432 207 362 136 284 136 Z"
+    fill="url(#fav-d-loop)"
+  />
+
+  <!-- Right > Chevron (nestled inside D loop) -->
+  <path
+    d="M 322 204 L 376 256 L 322 308"
+    stroke="url(#fav-green-chevron)"
+    stroke-width="28"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>
